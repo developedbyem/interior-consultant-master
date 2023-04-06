@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500;700&family=Montserrat:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============= general styles ============= */
+:root {
+  --white: #fff;
+  --light-gray: #828282;
+  --dark-gray: #181719;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+body {
+  color: var(--white);
+  background-color: var(--dark-gray);
+}
+
+/* ============= header ============= */
+header {
+  padding-inline: 12px 8px;
+  padding-top: 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 38px;
+}
+header .logo {
+  font-family: "Crimson Pro";
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  border: 1px solid var(--white);
+  padding-inline: 0.51rem;
+  padding-block: 0.42rem;
+}
+
+header .navbar {
+  display: flex;
+  align-items: center;
+}
+.navbar .ham-menu {
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .ham-menu div {
+  width: 28.5px;
+  height: 3px;
+  background-color: var(--white);
+}
+.navbar .ham-menu div:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.navbar .nav-items {
+  display: none;
+}
+
+header .sidebar {
+  background-color: var(--dark-gray);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  width: 100%;
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+.sidebar.show-sidebar {
+  transform: translateX(0);
+}
+.sidebar .sidebar-inner {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar .close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.sidebar .close-btn svg {
+  width: 44px;
+  height: 44px;
+  align-self: flex-end;
+  margin-bottom: 200px;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.sidebar .sidebar-items {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.sidebar .sidebar-items li {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: capitalize;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 10px;
+}
+.sidebar .sidebar-items li::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  transform: scale(0);
+  transform-origin: center;
+  transition: all 0.25s ease-in-out;
+}
+.sidebar .sidebar-items li:hover::after {
+  transform: scale(1);
+}
+/* ============= main content ============= */
+.main-content {
+  padding-inline: 12px;
+  margin-bottom: 175px;
+}
+
+.content-desc h1 {
+  font-family: "Lora";
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 46px;
+  margin-bottom: 25px;
+}
+.content-desc p {
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  max-width: 250px;
+  margin-bottom: 25px;
+}
+
+.content-desc .link {
+  display: flex;
+  gap: 12px;
+}
+.content-desc .link a {
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+  color: var(--white);
+  margin-bottom: 37px;
+  display: inline-block;
+}
+.content-desc .link svg {
+  width: 24px;
+  height: 24px;
+  transform: translateY(-2px);
+  animation: moveLink 1s ease-in-out infinite;
+}
+
+.content-banner {
+  position: relative;
+}
+.content-banner .person-info {
+  background-color: var(--dark-gray);
+  position: absolute;
+  top: 80%;
+  right: 11px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.person-info .info {
+  padding: 13.17px 22.5px 0 22.5px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.person-info .info img {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+}
+.person-info .info .name {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  margin-bottom: 6px;
+}
+.person-info .info .job {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--light-gray);
+}
+.person-info h2 {
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  max-width: 220px;
+  padding: 0 0 24px 19px;
+}
+/* ============= media queries ============= */
+@media screen and (min-width: 347px) {
+  /* main content */
+  .content-banner .person-info {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 450px) {
+  /* sidebar */
+  .sidebar .sidebar-items li {
+    font-size: 22px;
+  }
+}
+@media screen and (min-width: 768px) {
+  /* header */
+  header {
+    padding-inline: 77px 76px;
+    padding-top: 37px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto 90px;
+  }
+  header .logo {
+    padding-block: 0.45rem;
+  }
+  .header .ham-menu {
+    display: none;
+  }
+  .navbar .nav-items {
+    display: block;
+  }
+  .navbar .nav-items ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .nav-items ul li {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: capitalize;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .nav-items ul li::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white);
+    transform: scale(0);
+    transform-origin: center;
+    transition: all 0.25s ease-in-out;
+  }
+  .nav-items ul li:hover::after {
+    transform: scale(1);
+  }
+  header .sidebar {
+    display: none;
+  }
+  /* main content */
+  .main-content {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-inline: 77px;
+    margin-bottom: 276px;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* header */
+  header {
+    margin: 0 auto 120px;
+  }
+  .navbar .nav-items ul {
+    gap: 86px;
+  }
+  /* main content */
+  .main-content {
+    margin-bottom: 271px;
+  }
+  .content-center {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+  }
+  .content-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .content-desc h1 {
+    font-size: 48px;
+    line-height: 61px;
+    margin-bottom: 40px;
+  }
+  .content-desc p {
+    font-size: 24px;
+    line-height: 29px;
+    max-width: 410px;
+    margin-bottom: 48px;
+  }
+  .content-desc .link {
+    gap: 11px;
+  }
+  .content-desc .link a {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (min-width: 1100px) {
+  /* header */
+  .content-banner .person-info {
+    top: 85%;
+    right: 32px;
+    width: 410px;
+  }
+  .person-info .info {
+    padding: 18px 31px 0 31px;
+    gap: 19px;
+    margin-bottom: 25px;
+  }
+  .person-info .info img {
+    width: 50px;
+    height: 50px;
+  }
+  .person-info .info .name {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 8px;
+  }
+  .person-info .info .job {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .person-info h2 {
+    font-size: 24px;
+    line-height: 31px;
+    max-width: 287px;
+    padding: 0 0 34px 26px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* header */
+  header {
+    margin: 0 auto 171px;
+  }
+  /* main content */
+  .content-center {
+    grid-template-columns: 1fr 1.343fr;
+  }
+}
+/* ============= animations ============= */
+@keyframes moveLink {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
